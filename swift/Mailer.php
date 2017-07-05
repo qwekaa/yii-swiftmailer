@@ -161,7 +161,7 @@ class Mailer extends BaseMailer
                 }
             }
             unset($config['constructArgs']);
-            $object = Yii::createComponent($className, $args);
+            $object = call_user_func_array('Yii::createComponent', array_merge([$className], $args));
         } else {
             $object = Yii::createComponent($className);
         }
